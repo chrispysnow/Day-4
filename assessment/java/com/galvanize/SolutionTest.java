@@ -54,21 +54,21 @@ public class SolutionTest {
     public void oneArgReturnsMessage() {
         String[] input = {"Perry"};
 
-        assertEquals(String.format("Please specify an email for %s", input), executeMain(input), "For only one argument given");
+        assertEquals(String.format("Please specify an email for %s", input[0]), executeMain(input), "For only one argument given");
     }
 
     @Test
     public void twoArgsReturnsFormattedOutput() {
         String[] input = {"Perry Branch", "theman@galvanize.com"};
 
-        assertEquals(String.format("%s <%s>", input), executeMain(input), "For both arguments given");
+        assertEquals(String.format("%s <%s>", input[0], input[1]), executeMain(input), "For both arguments given");
     }
 
     @Test
     public void threeArgsReturnsFormattedOutput() {
         String[] input = {"Perry Branch", "theman@galvanize.com", "Extra"};
 
-        assertEquals(String.format("%s <%s>", input), executeMain(input), "For an extra argument given");
+        assertEquals(String.format("%s <%s>", input[0], input[1]), executeMain(input), "For an extra argument given");
     }
 
 
