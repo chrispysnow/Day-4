@@ -58,6 +58,8 @@ dependencies {
                 'org.junit.jupiter:junit-jupiter-params:5.0.2',
                 'org.junit.vintage:junit-vintage-engine:4.12.2'
 
+    assessmentCompile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
+    assessmentCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
     assessmentCompile 'org.junit.platform:junit-platform-console:1.0.0'
     assessmentCompile sourceSets.main.output
     assessmentCompile configurations.testCompile
