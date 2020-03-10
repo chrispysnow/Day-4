@@ -38,8 +38,6 @@ task assess(type: JavaExec) {
 }
 
 jar {
-    baseName = 'NameEmailFormatter'
-    version = ''
 
     manifest {
         attributes(
@@ -69,13 +67,3 @@ dependencies {
 test {
 }
 
-
-//junitPlatformTest.finalizedBy jacocoTestReport
-//assess.finalizedBy test
-//test.finalizedBy jacocoTestReport
-//jacocoTestReport.finalizedBy jacocoTestCoverageVerification
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.4.1'
-    distributionType = Wrapper.DistributionType.ALL
-}
