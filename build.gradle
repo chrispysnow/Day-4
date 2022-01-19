@@ -3,7 +3,7 @@ version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
@@ -17,7 +17,7 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
-    jcenter()
+    mavenCentral()
 }
 
 sourceSets {
@@ -41,27 +41,27 @@ jar {
 
     manifest {
         attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
+                'Class-Path': configurations.runtimeClasspath.collect { it.getName() }.join(' '),
                 'Main-Class': 'com.galvanize.NameEmailFormatter'
         )
     }
 }
 
 dependencies {
-    testCompile 'junit:junit:4.12'
-    testCompile 'org.hamcrest:hamcrest-all:1.3'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
 
-    testCompile 'org.apiguardian:apiguardian-api:1.0.0',
-                'org.junit.jupiter:junit-jupiter-engine:5.0.2',
-                'org.junit.jupiter:junit-jupiter-params:5.0.2',
-                'org.junit.vintage:junit-vintage-engine:4.12.2'
+    testImplementation 'org.apiguardian:apiguardian-api:1.1.2',
+            'org.junit.jupiter:junit-jupiter-engine:5.8.2',
+            'org.junit.jupiter:junit-jupiter-params:5.8.2',
+            'org.junit.vintage:junit-vintage-engine:5.8.2'
 
-    assessmentCompile group: 'com.google.guava', name: 'guava', version: '23.6-jre'
-    assessmentCompile group: 'cglib', name: 'cglib-nodep', version: '2.2'
-    assessmentCompile 'org.junit.platform:junit-platform-console:1.0.0'
-    assessmentCompile sourceSets.main.output
-    assessmentCompile configurations.testCompile
-    assessmentRuntime configurations.testRuntime
+    assessmentImplementation group: 'com.google.guava', name: 'guava', version: '23.6-jre'
+    assessmentImplementation group: 'cglib', name: 'cglib-nodep', version: '2.2'
+    assessmentImplementation 'org.junit.platform:junit-platform-console:1.8.2'
+    assessmentImplementation sourceSets.main.output
+    assessmentImplementation configurations.testImplementation
+    assessmentRuntimeOnly configurations.testRuntimeOnly
 }
 
 test {
