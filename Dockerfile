@@ -1,5 +1,5 @@
 # Install latest release of Java version 9
-FROM openjdk:9-jdk-slim
+FROM openjdk:latest
 
 # Create directory for app
 RUN mkdir /app
