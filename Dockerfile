@@ -1,4 +1,3 @@
-# Install latest release of Java version 9
 FROM openjdk:latest
 
 # Create directory for app
